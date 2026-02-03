@@ -19,6 +19,24 @@ Um array vazio chamado patients também é criado para armazenar os dados dos pa
 
 function addPatient() {
     const name = document.getElementById("name").value;
+    const genderInput = document.querySelector('input[name="gender"]:checked');
+    const age = document.getElementById("age").value;
+    const conditionSelect = document.getElementById("condition");
+  
+    if (!name || !genderInput || !age || !conditionSelect.value) return;
+  
+    // Normaliza os valores
+    const gender = genderInput.value; // deve ser "Male" ou "Female"
+    const condition = conditionSelect.value; // deve ser "Diabetes", "Thyroid" ou "High Blood Pressure"
+  
+    patients.push({ name, gender, age, condition });
+    resetForm();
+    generateReport();
+  }
+  
+
+/*function addPatient() {
+    const name = document.getElementById("name").value;
     const gender = document.querySelector('input[name="gender"]:checked');
     const age = document.getElementById("age").value;
     const condition = document.getElementById("condition").value;
@@ -28,7 +46,7 @@ function addPatient() {
       resetForm();
       generateReport();
     }
-  }
+  }*/
 
 
 /**
@@ -83,12 +101,23 @@ function generateReport() {
     };
 
     for (const patient of patients) {
-      conditionsCount[patient.condition]++;
-      genderConditionsCount[patient.gender][patient.condition]++;
-    }
+        if (!genderConditionsCount[patient.gender]) {
+          console.warn(`Gênero inválido: ${patient.gender}`);
+          continue;
+        }
+        if (!genderConditionsCount[patient.gender][patient.condition]) {
+          console.warn(`Condição inválida: ${patient.condition}`);
+          continue;
+        }
+        conditionsCount[patient.condition]++;
+        genderConditionsCount[patient.gender][patient.condition]++;
+      }
+      
 
     report.innerHTML = `Number of patients: ${numPatients}<br><br>`;
     report.innerHTML += `Conditions Breakdown:<br>`;
+    
+    
     for (const condition in conditionsCount) {
       report.innerHTML += `${condition}: ${conditionsCount[condition]}<br>`;
     }
