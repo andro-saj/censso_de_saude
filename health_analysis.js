@@ -102,7 +102,7 @@ function generateReport() {
     }
   }
 
-addPatientButton.addEventListener("click", addPatient);
+
 
 
 /**
@@ -161,6 +161,8 @@ function searchCondition() {
         resultDiv.innerHTML = 'An error occurred while fetching data.';
       });
   }
+
+    addPatientButton.addEventListener("click", addPatient);
     btnSearch.addEventListener('click', searchCondition);
 
 /**
