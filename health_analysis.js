@@ -100,6 +100,7 @@ function generateReport() {
       },
     };
 
+    // Atualiza os contadores
     for (const patient of patients) {
         if (!genderConditionsCount[patient.gender]) {
           console.warn(`Gênero inválido: ${patient.gender}`);
@@ -111,25 +112,23 @@ function generateReport() {
         }
         conditionsCount[patient.condition]++;
         genderConditionsCount[patient.gender][patient.condition]++;
-      }
-      
+    }
 
+    // Atualiza o HTML
     report.innerHTML = `Number of patients: ${numPatients}<br><br>`;
     report.innerHTML += `Conditions Breakdown:<br>`;
-    
-    
     for (const condition in conditionsCount) {
-      report.innerHTML += `${condition}: ${conditionsCount[condition]}<br>`;
+        report.innerHTML += `${condition}: ${conditionsCount[condition]}<br>`;
     }
 
     report.innerHTML += `<br>Gender-Based Conditions:<br>`;
     for (const gender in genderConditionsCount) {
-      report.innerHTML += `${gender}:<br>`;
-      for (const condition in genderConditionsCount[gender]) {
-        report.innerHTML += `&nbsp;&nbsp;${condition}: ${genderConditionsCount[gender][condition]}<br>`;
-      }
+        report.innerHTML += `${gender}:<br>`;
+        for (const condition in genderConditionsCount[gender]) {
+            report.innerHTML += `&nbsp;&nbsp;${condition}: ${genderConditionsCount[gender][condition]}<br>`;
+        }
     }
-  }
+}
 
 
 
