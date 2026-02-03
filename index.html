@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Dados de Análise de Saúde</title>
+  <link rel="stylesheet" href="./health_analysis.css">
+</head>
+<body>
+   <nav><h1>Censo de Análise de Saúde</h1>
+<ul>
+  <li><a href="./index.html" id="home">Início </a></li>
+  <li><a href="./health_contact.html" id="contact">Fale Conosco </a></li>
+  <li><input type="text" id="conditionInput" placeholder="Digite uma condição de saúde">  </li>
+  <li><button id='btnSearch'>Buscar</button>
+  </li>
+
+</ul>
+</nav>
+<div class="container">
+<div class="analysisForm">
+<h1>Análise de Dados de Saúde</h1>
+<div>
+<label for="name">Nome:</label>
+<input type="text" id="name">
+</div>
+<div>
+<label>Gênero:</label>
+<label for="male">Masculino</label>
+<input type="radio" name="gender" id="male" value="Masculino">
+<label for="female">Feminino</label>
+<input type="radio" name="gender" id="female" value="Feminino">
+</div>
+<div>
+<label for="age">Idade:</label>
+<input type="number" id="age">
+</div>
+<div>
+<label for="condition">Condição:</label>
+<select id="condition">
+  <option value="">Selecione a condição</option>
+  <option value="Diabetes">Diabetes</option>
+  <option value="Tireoide">Tireoide</option>
+  <option value="Hipertensão">Hipertensão</option>
+</select>
+</div>
+<button id="addPatient">Adicionar Paciente</button>
+<h2>Relatório de Análise</h2>
+<div id="report"></div>
+</div>
+<div class="searchCondition">
+    <div id="result"></div>
+</div>
+</div>
+<script src="./health_analysis.js"></script>
+</body>
+</html>
+
+<!---------
+    
+A tag <nav> indica uma seção de navegação dentro do documento HTML.
+
+A tag <head> apresenta o título “Dados de Análise de Saúde” dentro da seção de navegação.
+
+Uma lista não ordenada <ul> contém uma lista de itens <li>:
+– um para o link da página inicial usando uma tag âncora
+– outro é uma caixa de entrada para uma barra de busca
+– um terceiro é para um botão de busca para pesquisar dados relacionados a uma condição de saúde específica
+
+O formulário de entrada consiste em um formulário para inserir dados relacionados à saúde. Os campos incluem:
+– Um campo de entrada de texto para capturar o nome do paciente
+– Botões de rádio para selecionar o gênero do paciente (masculino/feminino)
+– Um campo de entrada especificamente para inserir a idade do paciente
+– Um menu suspenso <select> permitindo a seleção da condição médica do paciente
+– Um botão rotulado Adicionar Paciente para enviar os dados para processamento e análise
+
+Uma tag <h2> apresenta o cabeçalho “Relatório de Análise.”
+
+O ID report identifica um elemento <div> vazio. Esta ação irá exibir dinamicamente os relatórios de análise gerados com base nos dados inseridos pelo usuário.
+
+Mais um elemento <div> vazio identificado pelo ID result. Esta ação irá exibir dinamicamente os detalhes gerados para uma condição de saúde específica, mostrando seus sintomas e métodos de prevenção.
+
+Você tem uma linha de código disponível na linha número 12. O hyperlink tem um atributo href definido como “./health_contact.html”, indicando que, ao ser clicado, redirecionará o usuário para a página “health_contact.html” localizada no diretório atual.
+<li><a href="./health_contact.html" id="contact">Fale Conosco </a></li>
+
+Aplique CSS de acordo com seu design e tema de cores. Para isso, crie um arquivo CSS e nomeie-o como health_analysis.css selecionando a pasta healthAnalysis e clicando com o botão direito para selecionar Novo Arquivo.-->
